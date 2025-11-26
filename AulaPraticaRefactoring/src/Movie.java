@@ -1,33 +1,19 @@
 public class Movie {
 
-    public static final int REGULAR = 0;
-    public static final int NEW_RELEASE = 1;
-    public static final int CHILDRENS = 2;
-
     private String title;
     private Price price;
 
-    public Movie(String title, int priceCode) {
+    public Movie(String title, Price price) {
         this.title = title;
-        setPriceCode(priceCode);
+        this.price = price;
     }
 
-    public int getPriceCode() {
-        return price.getPriceCode();
+    public Price getPrice() {
+        return price;
     }
 
-    public void setPriceCode(int priceCode) {
-        switch (priceCode) {
-            case REGULAR:
-                price = new RegularPrice();
-                break;
-            case NEW_RELEASE:
-                price = new NewReleasePrice();
-                break;
-            case CHILDRENS:
-                price = new ChildrensPrice();
-                break;
-        }
+    public void setPrice(Price price) {
+        this.price = price;
     }
 
     public String getTitle() {
@@ -42,4 +28,3 @@ public class Movie {
         return price.getFrequentRenterPoints(daysRented);
     }
 }
-
